@@ -1,28 +1,201 @@
-.App {
+*{
+  box-sizing: border-box;}
+h1 {
   text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  color:midnightblue;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
+  background-color: lightblue;
+  height: 50px;
   padding: 20px;
+  color: white;
+  border-bottom: 2px solid black;
+}
+
+
+html,
+body {
+  font-family: Arial, sans-serif;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+.container {
+  height: 100vh;
+  display: flex;
+  width: 100%;
+}
+#map {
+  bottom:0;
+  height: calc(100vh - 95px);
+  width:100vw;
+  margin: 0;
+  border: 1px solid #999;
+}
+input {
+  font-size: 14px;
+}
+
+
+#hide-listings,
+#show-listings {
+  width: 48%;
+}
+
+.options-box {
+  border: 1px solid #999;
+  height: calc(100vh - 95px);
+  line-height: 35px;
+  padding: 0 10px;
+  text-align: left;
+  width: 540px;
+  background-color:lightblue;
+}
+
+#pano {
+  width: 200px;
+  height: 200px;
+}
+
+#places-search{
+  width: 84%;
+}
+
+.text {
+  font-size: 16px;
   color: white;
 }
 
-.App-title {
-  font-size: 1.5em;
+
+
+#zoom-to-area-text {
+  width: 70%;
 }
 
-.App-intro {
-  font-size: large;
+#zoom-to-area {
+  width: 24%;
+}
+@media screen and (min-width: 1850px) {
+  body, html {
+    max-width: 1250px;
+    margin: auto;
+  }
+  .App-header{
+    height: 70px;
+  }
+  h1{
+    font-size: 27px;
+    text-align: center;
+    display: block;
+    margin: auto;
+    padding: 5px;
+  }
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+@media (min-width: 801px) and (max-width: 1849px) {
+  body, html {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+  input {
+    font-size: 22px;
+    margin-bottom: 40px;
+  }
+  .App-header{
+    height: 80px;
+  }
+  .options-box h1{
+    line-height: 40px;
+    margin:35px auto;
+  }
+  h1{
+    font-size: 30px;
+    text-align: center;
+    display: block;
+    margin: auto;
+    padding: 5px;
+  }
+  .text {
+    font-size: 27px;
+    color:midnightblue;
+    font-weight: bold;
+  }
+
+}
+@media (min-width: 481px) and (max-width: 800px) {
+
+    .container {
+      display: block;
+      min-width: 100vw;
+      padding: 0;
+    }
+    .options-box {
+      width:100vw;
+      max-height: 150px;
+      padding: 10px;
+
+    }
+    #map {
+      width:100vw;
+    }
+
+    h1{
+      font-size: 18px;
+      text-align: center;
+      display: block;
+      margin: auto;
+      padding: 0;
+    }
+    .App-header {
+      background-color: lightblue;
+      height: 60px;
+      padding: 10px;
+      min-width: 100vw;
+      color: white;
+      border-bottom: 2px solid black;
+    }
+
+  }
+@media screen and (max-width: 481px){
+
+  .container {
+    display: block;
+    width: 100vw;
+    padding: 0;
+  }
+  .options-box {
+    width:100vw;
+    max-height: 150px;
+    padding: 10px;
+    margin: auto;
+
+  }
+  .options-box h1{
+    line-height: 8px;
+  }
+
+  h1{
+    font-size: 16px;
+    text-align: center;
+    display: block;
+  }
+
+  .App-header {
+    background-color: lightblue;
+    width: 100vw;
+    color: white;
+    border-bottom: 2px solid black;
+
+
+  }
+  .App-header h1{
+    line-height: 4px;
+  }
+#map{
+  width: 100vw;
+  padding: 0px;
+
+}
 }
