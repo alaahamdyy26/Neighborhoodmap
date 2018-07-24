@@ -3,7 +3,6 @@ import './App.css';
 import Map from "./Map";
 import Filter from "./Filter";
 
-
 class App extends Component {
   state = {
     query: "",
@@ -14,14 +13,14 @@ class App extends Component {
   }
 
   locations = [
-    {title: 'Stars Mall', location: {lat: 30.072979, lng: 31.34605}},
-    {title: 'Bowling Center', location: {lat: 30.076433, lng: 31.301089}},
-    {title: 'Gym', location: {lat: 30.084285, lng: 31.342521}},
-    {title: 'Home', location: {lat: 30.06791, lng: 31.353687}},
-    {title: 'Bakery', location: {lat: 29.951662, lng: 31.265496}},
-    {title: 'Restaurant', location: {lat: 30.072994, lng: 31.221878}},
-    {title: 'Airport', location: {lat:30.112363, lng: 31.400289}},
-    {title: 'Coffee House', location: {lat:30.068441, lng: 31.344537}},
+    {title: 'Stars Mall', location: {lat: 30.072979, lng: 31.34605},fourSquareId:'4b853e48f964a520845231e3'},
+    {title: 'Point-90', location: {lat:30.020321, lng: 31.495028},fourSquareId: '55aacda1498e0ce436da1bb6'},
+    {title: 'Gym', location: {lat: 30.084285, lng: 31.342521},fourSquareId: '4fa51d64e4b01acec3a40d97'},
+    {title: 'Bakery', location: {lat: 29.951662, lng: 31.265496},fourSquareId:'59dd23de625a666ff072eab1'},
+    {title: 'Restaurant', location: {lat: 30.072994, lng: 31.221878},fourSquareId:'4bd33cf641b9ef3b1da3ffe5'},
+    {title: 'Airport', location: {lat:30.112363, lng: 31.400289},fourSquareId:'4b7a230bf964a52034242fe3'},
+    {title: 'Coffee House', location: {lat:30.068441, lng: 31.344537},fourSquareId:'4c89f3f3159cbfb7abb26e35'},
+    {title: 'SDC', location: {lat:30.110194, lng: 31.376745},fourSquareId:'50142a17e4b0e28d99387589'},
   ]
   componentDidMount() {
   }

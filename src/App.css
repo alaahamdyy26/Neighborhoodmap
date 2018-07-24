@@ -12,7 +12,13 @@ h1 {
   color: white;
   border-bottom: 2px solid black;
 }
-
+#map p{
+  color: red;
+  font-size: 16px;
+  font-weight: bolder;
+  text-align: center;
+  margin-top: 50px;
+}
 
 html,
 body {
@@ -37,6 +43,8 @@ body {
   font-weight: bold;
   line-height: 30px;
   color: #F6605D;
+  cursor: pointer
+
 }
 input {
   font-size: 14px;
@@ -68,10 +76,27 @@ input {
 
 #zoom-to-area-text {
   width: 70%;
+  border: 1px solid grey;
 }
 
 #zoom-to-area {
   width: 24%;
+}
+.venueName{
+  font-weight: bold;
+  letter-spacing:0.5px;
+}
+.venueContact{
+  font-size: 12px;
+  font-weight: bold;
+  color:;
+}
+.venueRating{
+  color:red;
+  font-weight: bold;
+}
+.venueRating span{
+  text-decoration: underline;
 }
 @media screen and (min-width: 1850px) {
   body, html {
@@ -124,7 +149,7 @@ input {
     font-size: 22px;
     line-height: 35px;
     color: #F6605D;
-
+    cursor: pointer
   }
 
 }
@@ -166,6 +191,7 @@ input {
     line-height: 14px;
     color: #F6605D;
     float: left;
+    cursor: pointer
   }
 
   }
@@ -213,6 +239,7 @@ input {
     line-height: 12px;
     color: #F6605D;
     float: left;
+    cursor: pointer
   }
 
 }

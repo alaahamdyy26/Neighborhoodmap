@@ -4,20 +4,21 @@ import escapeRegExp from 'escape-string-regexp'
 class Filter extends Component {
   state = {
     query: ''
-
   }
 
   render() {
     let showLocation;
+    //filter list based on user's input
     if (this.state.query) {
       const match = new RegExp(escapeRegExp(this.state.query), 'i')
+      //Filter the places in the list
       showLocation = this.props.locations.filter((locations) => match.test(locations.title))
     } else {
       showLocation = this.props.locations
     }
     return (
       <div>
-        <input
+        <input tabIndex='2'
           id="zoom-to-area-text"
           type="text"
           placeholder="Enter area name"
@@ -30,14 +31,25 @@ class Filter extends Component {
             }
           }}
         />
-        <input onClick={(e) => {
-          e.preventDefault();
+        <input tabIndex='0'
+          onClick={(e) => {
 
+          e.preventDefault();
           this.props.onFilterSelection(this.state.query)
         }}  id="zoom-to-area" type="button" value="Filter"/>
         <ul>
           {showLocation.map((location) => (
-            <li key={location.title} className='locations'>{location.title}</li>
+            <li onClick={(e) => {
+              this.props.onFilterSelection(e.target.textContent)
+              this.setState({query:e.target.textContent})
+            }}
+                onKeyPress={(e) => {
+                  if (e.key=== 'Enter') {
+                    // Trigger the button element with a click
+                    this.props.onFilterSelection(e.target.textContent)
+                  }
+                }}
+              tabIndex='0' key={location.title} className='locations'>{location.title}</li>
           ))}
         </ul>
       </div>
