@@ -23,7 +23,11 @@ class Filter extends Component {
           type="text"
           placeholder="Enter area name"
           value={this.state.query}
-          onChange={(event) => this.setState({query: event.target.value})}
+          onChange={(event) => {
+            this.setState({query: event.target.value})
+            this.props.onFilterSelection(this.state.query)
+          }}
+
           onKeyPress={(e) => {
             if (e.key=== 'Enter') {
               // Trigger the button element with a click
@@ -41,7 +45,6 @@ class Filter extends Component {
           {showLocation.map((location) => (
             <li onClick={(e) => {
               this.props.onFilterSelection(e.target.textContent)
-              this.setState({query:e.target.textContent})
             }}
                 onKeyPress={(e) => {
                   if (e.key=== 'Enter') {

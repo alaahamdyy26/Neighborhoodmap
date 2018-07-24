@@ -41,6 +41,9 @@ class Map extends Component {
     // so Google Maps can invoke it
     window.initMap = this.initMap.bind(this);
 
+    // Register google maps auth error handler
+    window.gm_authFailure = this.gm_authFailure;
+
     // Asynchronously load the Google Maps script, passing in the callback reference
     function loadScript() {
       const script = document.createElement("script");
@@ -48,6 +51,7 @@ class Map extends Component {
       script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBiwtOmgaHpGbQEN9G6VoeUt3brZncvKnk&v=3&callback=initMap";
 
       //try/error function scheduled to run with setTimeout to test if map loaded with no error.
+      if(navigator.onLine) {
       setTimeout(function () {
         try {
           if (!window.google || !window.google.maps) throw "opps!!! sorry google Maps loading was unsuccessful, try again later";
@@ -59,8 +63,15 @@ class Map extends Component {
       },1000)
     document.body.appendChild(script);
     }
+    else{
+      alert('You are currently offline, the information you are checking might not be up to date.')
+    }}
     window.onload = loadScript;
   }
+
+  gm_authFailure = () => {
+    alert('Sorry, Could not authenticate with Google Maps')
+  };
 
   showInfoWindow = (marker, infowindow) => {
     // Check to make sure the infowindow is not already opened on this marker.
@@ -69,7 +80,7 @@ class Map extends Component {
       //getting the venue details by the venueID
       fourSquareAPI.getVenueDetails(marker.fourSquareId).then((venueDetails) => {
         infowindow.setContent(
-          `<div class="venueName"> ${venueDetails.name}</div><br> <div class="venueContact">Contact us:  ${venueDetails.contact.phone} </div><br> <div class="venueRating">Rating: ${venueDetails.rating}`)
+          `<div class="venueName"> ${venueDetails.name}</div><br> <div class="venueContact">Contact us:  ${venueDetails.contact.phone} </div><br> <div class="venueRating">Rating: ${venueDetails.rating} <br><span class="credits"> Provided by FourSquare</span> `)
       })
 
       infowindow.open(this.map, marker);
@@ -143,7 +154,7 @@ class Map extends Component {
     this.zoomToArea()
 
     return (
-      <div id="map"></div>
+      <div role="application" id="map"></div>
     )
   }
 }

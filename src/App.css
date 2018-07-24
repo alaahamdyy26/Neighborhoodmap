@@ -19,7 +19,14 @@ h1 {
   text-align: center;
   margin-top: 50px;
 }
-
+.credits{
+  font-size: 10px;
+  color:blue;
+  float: right;
+  margin: 5px;
+  border:1px solid lightblue;
+  text-decoration: none !important;
+}
 html,
 body {
   font-family: Arial, sans-serif;
