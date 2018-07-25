@@ -36,6 +36,7 @@ class Map extends Component {
     }
   }
 
+  //Shows or removes markers from the map-based on user's input
   setMarkers = (locationsToShow) => {
     this.props.locations.forEach((l) => {
       if (locationsToShow.indexOf(l) !== -1) {
