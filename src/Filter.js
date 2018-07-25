@@ -19,40 +19,41 @@ class Filter extends Component {
     return (
       <div>
         <input tabIndex='2'
-          id="zoom-to-area-text"
-          type="text"
-          placeholder="Enter area name"
-          value={this.state.query}
-          onChange={(event) => {
-            this.setState({query: event.target.value})
-            this.props.onFilterSelection(this.state.query)
-          }}
+               id="zoom-to-area-text"
+               type="text"
+               placeholder="Enter area name"
+               value={this.state.query}
+               onChange={(event) => {
+                 this.setState({query: event.target.value}, () => {
+                   this.props.onFilterSelection(this.state.query)
+                 })
+               }}
 
-          onKeyPress={(e) => {
-            if (e.key=== 'Enter') {
-              // Trigger the button element with a click
-              document.getElementById("zoom-to-area").click();
-            }
-          }}
+               onKeyPress={(e) => {
+                 if (e.key === 'Enter') {
+                   // Trigger the button element with a click
+                   document.getElementById("zoom-to-area").click();
+                 }
+               }}
         />
         <input tabIndex='0'
-          onClick={(e) => {
+               onClick={(e) => {
 
-          e.preventDefault();
-          this.props.onFilterSelection(this.state.query)
-        }}  id="zoom-to-area" type="button" value="Filter"/>
+                 e.preventDefault();
+                 this.props.onFilterSelection(this.state.query)
+               }} id="zoom-to-area" type="button" value="Filter"/>
         <ul>
           {showLocation.map((location) => (
             <li onClick={(e) => {
               this.props.onFilterSelection(e.target.textContent)
             }}
                 onKeyPress={(e) => {
-                  if (e.key=== 'Enter') {
+                  if (e.key === 'Enter') {
                     // Trigger the button element with a click
                     this.props.onFilterSelection(e.target.textContent)
                   }
                 }}
-              tabIndex='0' key={location.title} className='locations'>{location.title}</li>
+                tabIndex='0' key={location.title} className='locations'>{location.title}</li>
           ))}
         </ul>
       </div>
